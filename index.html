@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DARBI – prototips</title>
+  <style>
+    :root {
+      --krasa-fons: #f5f6f8;
+      --krasa-virsma: #ffffff;
+      --krasa-teksts: #1f2933;
+      --krasa-pelekais: #616e7c;
+      --krasa-akcents: #2f5d8a;
+      --krasa-robeza: #d9dee4;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      background: var(--krasa-fons);
+      color: var(--krasa-teksts);
+      line-height: 1.5;
+    }
+
+    header {
+      background: var(--krasa-akcents);
+      color: #fff;
+      padding: 16px 24px;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 1.4rem;
+    }
+
+    header p {
+      margin: 4px 0 0;
+      opacity: 0.85;
+      font-size: 0.9rem;
+    }
+
+    nav {
+      background: var(--krasa-virsma);
+      border-bottom: 1px solid var(--krasa-robeza);
+      padding: 0 24px;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+    }
+
+    nav a {
+      display: block;
+      padding: 12px 14px;
+      color: var(--krasa-teksts);
+      text-decoration: none;
+      border-bottom: 3px solid transparent;
+    }
+
+    nav a:hover { color: var(--krasa-akcents); }
+
+    nav a.aktivs {
+      color: var(--krasa-akcents);
+      border-bottom-color: var(--krasa-akcents);
+      font-weight: 600;
+    }
+
+    main {
+      max-width: 960px;
+      margin: 24px auto;
+      padding: 0 16px;
+    }
+
+    .sadala {
+      background: var(--krasa-virsma);
+      border: 1px solid var(--krasa-robeza);
+      border-radius: 8px;
+      padding: 24px;
+    }
+
+    .sadala[hidden] { display: none; }
+
+    .sadala h2 { margin-top: 0; }
+
+    .tukss {
+      color: var(--krasa-pelekais);
+      font-style: italic;
+    }
+
+    footer {
+      text-align: center;
+      color: var(--krasa-pelekais);
+      font-size: 0.85rem;
+      padding: 24px 16px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>DARBI</h1>
+    <p>Prototips · izmanto tikai izdomātus testa datus</p>
+  </header>
+
+  <nav aria-label="Galvenā navigācija">
+    <ul>
+      <li><a href="#sakums" class="aktivs">Sākums</a></li>
+      <li><a href="#saraksts">Saraksts</a></li>
+      <li><a href="#iestatijumi">Iestatījumi</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section id="sakums" class="sadala">
+      <h2>Sākums</h2>
+      <p class="tukss">Šeit vēl nav satura.</p>
+    </section>
+
+    <section id="saraksts" class="sadala" hidden>
+      <h2>Saraksts</h2>
+      <p class="tukss">Šeit vēl nav satura.</p>
+    </section>
+
+    <section id="iestatijumi" class="sadala" hidden>
+      <h2>Iestatījumi</h2>
+      <p class="tukss">Šeit vēl nav satura.</p>
+    </section>
+  </main>
+
+  <footer>DARBI prototips</footer>
+
+  <script>
+    // Vienkārša sadaļu pārslēgšana pēc adreses #fragmenta (bez servera).
+    function raditSadalu() {
+      const id = (location.hash || "#sakums").slice(1);
+      const sadalas = document.querySelectorAll(".sadala");
+      const merkis = document.getElementById(id) ? id : "sakums";
+
+      sadalas.forEach(function (s) {
+        s.hidden = s.id !== merkis;
+      });
+
+      document.querySelectorAll("nav a").forEach(function (a) {
+        a.classList.toggle("aktivs", a.getAttribute("href") === "#" + merkis);
+      });
+    }
+
+    window.addEventListener("hashchange", raditSadalu);
+    raditSadalu();
+  </script>
+</body>
+</html>
