@@ -1,6 +1,6 @@
 # DARBI
 
-DARBI ir vienkāršs saskarnes prototips. Tas ir viens HTML fails, kas darbojas pārlūkā bez servera un bez instalēšanas. Prototipā izmanto tikai izdomātus testa datus.
+„Dainas darbi” ir vienkāršs saskarnes prototips. Tas ir viens HTML fails, kas darbojas pārlūkā bez servera un bez instalēšanas. Prototipā izmanto tikai izdomātus testa datus.
 
 ## Kā atvērt
 
@@ -9,8 +9,11 @@ DARBI ir vienkāršs saskarnes prototips. Tas ir viens HTML fails, kas darbojas 
 
 Serveris nav vajadzīgs.
 
+Tiešsaistē (ja ieslēgts GitHub Pages): https://dainakepe.github.io/DARBI/
+
 ## Pašreizējais stāvoklis
 
+- Galvenē pa vidu ir virsraksts „Dainas darbi”.
 - Lapai ir galvene, navigācija ar trim sadaļām (Sākums, Saraksts, Iestatījumi) un satura daļa.
 - Sadaļas pagaidām ir tukšas.
 - Sadaļas pārslēdzas pēc adreses fragmenta (piemēram, `index.html#saraksts`).
